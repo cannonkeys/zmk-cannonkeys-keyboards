@@ -17,4 +17,5 @@
 #     artifact-name: corne_left_with_logging
 #
 ---
-board: ["photon", "bakeneko60_go", "cerberus", "vida", "minimi40"]
+# board: ["photon", "bakeneko60_go", "cerberus", "vida", "minimi40"]
+board: ["minimi40"]

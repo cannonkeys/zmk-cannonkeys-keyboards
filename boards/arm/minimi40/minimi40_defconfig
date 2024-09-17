@@ -25,5 +25,6 @@ CONFIG_FLASH_MAP=y
 
 CONFIG_ZMK_PM_SOFT_OFF=y
 
+CONFIG_ZMK_STUDIO=y
 # Turn on logging, and set ZMK logging to debug output
 # CONFIG_ZMK_USB_LOGGING=y

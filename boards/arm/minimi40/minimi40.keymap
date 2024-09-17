@@ -24,7 +24,7 @@
 
         mod_layer {
             bindings = <
-    &trans   &trans  &trans  &trans     &trans   &trans   &trans     &trans    &trans    &trans    &trans    &kp DEL
+    &studio_unlock   &trans  &trans  &trans     &trans   &trans   &trans     &trans    &trans    &trans    &trans    &kp DEL
     &trans   &trans  &trans  &trans     &trans   &trans   &trans     &trans    &trans    &trans    &trans
     &trans   &trans  &trans  &trans     &trans   &trans   &trans     &trans              &trans    &trans    &trans
     &trans   &trans  &trans             &trans            &trans               &trans    &trans    &trans
