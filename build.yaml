@@ -18,4 +18,10 @@
 #
 ---
 # board: ["photon", "bakeneko60_go", "cerberus", "vida", "minimi40"]
-board: ["minimi40"]
+include:
+  - board: minimi40
+    artifact-name: minimi40
+  - board: minimi40
+    snippet: studio-rpc-usb-uart
+    cmake-args: -DCONFIG_ZMK_STUDIO=y
+    artifact-name: minimi40_studio
