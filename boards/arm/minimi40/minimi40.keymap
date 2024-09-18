@@ -54,14 +54,12 @@
         };
     };
 
-/*
     combos {
         compatible = "zmk,combos";
         combo_bt {
             timeout-ms = <50>;
-            key-positions = <59 68>;
-            bindings = <&mo 2>;
+            key-positions = <32 33>;
+            bindings = <&mo 3>;
         };
     };
-*/
 };
