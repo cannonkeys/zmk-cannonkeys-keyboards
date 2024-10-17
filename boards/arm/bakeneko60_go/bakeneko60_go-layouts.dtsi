@@ -139,24 +139,20 @@
             ;
     };
 
-    // Map split backspace/shift key positions into the unused space at the end of the smaller ANSI keymap slots
+/ {
     position_map {
         compatible = "zmk,physical-layout-position-map";
-        split_bs_shift {
-            physical-layout = <&sixty_percent_ansi_split_bs_rshift>;
-            positions
-	        // Backspace  Shift
-                = <       13     53>
-		;
-        };
-	
+
         ansi {
             physical-layout = <&sixty_percent_ansi>;
-            positions
-	        //    Unused Unused
-                = <       61     62>
-		;
+            positions = <61 13 52 62>;
+        };
+
+        split_bs_shift {
+            physical-layout = <&sixty_percent_ansi_split_bs_rshift>;
+            positions = <13 14 53 54>;
         };
     };
+};
 
 };
