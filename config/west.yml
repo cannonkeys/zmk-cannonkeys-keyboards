@@ -12,6 +12,5 @@ manifest:
     - name: zmk-gpio-behavior
       remote: awkannan
       revision: main
-      import: app/west.yml
   self:
     path: config
