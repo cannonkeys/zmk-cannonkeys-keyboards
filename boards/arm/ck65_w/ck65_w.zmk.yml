@@ -1,0 +1,11 @@
+file_format: "1"
+id: ck65_w
+name: ck65_w
+type: board
+arch: arm
+features:
+  - keys
+outputs:
+  - usb
+  - ble
+url: https://cannonkeys.com/
