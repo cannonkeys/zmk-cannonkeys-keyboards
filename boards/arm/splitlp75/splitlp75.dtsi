@@ -45,7 +45,22 @@ RC(5,0) RC(5,1) RC(5,2)         RC(5,4)         RC(5,6)             RC(5,9)     
         label = "BATTERY";
     };
 
+    right_encoder: encoder_right {
+        compatible = "alps,ec11";
+        a-gpios = <&gpio0 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        b-gpios = <&gpio0 22 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        steps = <48>;
+        status = "disabled";
+    };
+
+    sensors: sensors {
+        compatible = "zmk,keymap-sensors";
+        sensors = <&right_encoder>;
+        triggers-per-rotation = <12>;
+    };
+
 };
+
 
 &adc {
     status = "okay";

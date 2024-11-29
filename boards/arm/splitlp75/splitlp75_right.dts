@@ -49,3 +49,7 @@
 &default_transform {
     col-offset = <8>;
 };
+
+&right_encoder {
+    status = "okay";
+};
