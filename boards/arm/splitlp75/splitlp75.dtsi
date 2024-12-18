@@ -1,9 +1,8 @@
 /*
-*
-* Copyright (c) 2021 Darryl deHaan
-* SPDX-License-Identifier: MIT
-*
-*/
+ * Copyright (c) 2024 Andrew Kannan
+ * SPDX-License-Identifier: MIT
+ */
+
 
 /dts-v1/;
 #include <nordic/nrf52840_qiaa.dtsi>
@@ -23,8 +22,8 @@
         zephyr,flash = &flash0;
         zmk,battery = &vbatt;
         zmk,kscan = &kscan0;
-        zmk,underglow = &led_strip;
         zmk,matrix_transform = &default_transform;
+        zmk,underglow = &led_strip;
     };
 /* Note - RC(6,17) and RC(6,16) are impossible placeholders just to make the keymap work
    PCB error has RC(4,10) mapped to M and comma (both)
@@ -98,7 +97,7 @@ RC(5,0) RC(5,1) RC(5,2)         RC(5,4)         RC(5,6)             RC(5,10)    
         spi-max-frequency = <4000000>;
 
         /* WS2812 */
-        chain-length = <1>; /* number of LEDs */
+        chain-length = <2>; /* number of LEDs */
         spi-one-frame = <0x70>;
         spi-zero-frame = <0x40>;
         color-mapping = <LED_COLOR_ID_GREEN
