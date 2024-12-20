@@ -62,10 +62,10 @@
             display-name = "Keyboard Control";
             bindings = <
     &bt BT_CLR_ALL &kp F1    &kp F2    &kp F3    &kp F4    &kp F5    &kp F6    &kp F7    &kp F8    &kp F9    &kp F10   &kp F11   &kp F12   &kp DEL   &bt BT_CLR  
-    &rgb_ug RGB_TOG &rgb_ug RGB_EFF &rgb_ug RGB_HUI &rgb_ug RGB_SAI  &rgb_ug RGB_BRI &rgb_ug RGB_SPI &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &bt BT_SEL 1   
-    &trans          &rgb_ug RGB_EFR &rgb_ug RGB_HUD &rgb_ug RGB_SAD  &rgb_ug RGB_BRD &rgb_ug RGB_SPD &trans    &trans    &trans    &trans    &trans    &trans    &studio_unlock      &bt BT_SEL 2   
-    &trans                          &trans          &trans           &trans          &trans          &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &bt BT_SEL 3 
-    &bootloader     &trans          &trans                                                           &rgb_ug RGB_TOG                         &trans    &trans    &trans    &trans    &bt BT_SEL 4
+    &rgb_ug RGB_TOG &rgb_ug RGB_EFF &rgb_ug RGB_HUI &rgb_ug RGB_SAI  &rgb_ug RGB_BRI &rgb_ug RGB_SPI &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &bt BT_SEL 0   
+    &trans          &rgb_ug RGB_EFR &rgb_ug RGB_HUD &rgb_ug RGB_SAD  &rgb_ug RGB_BRD &rgb_ug RGB_SPD &trans    &trans    &trans    &trans    &trans    &trans    &studio_unlock      &bt BT_SEL 1   
+    &trans                          &trans          &trans           &trans          &trans          &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &bt BT_SEL 2 
+    &bootloader     &trans          &trans                                                           &rgb_ug RGB_TOG                         &trans    &trans    &trans    &trans    &bt BT_SEL 3
             >;
         };
 
