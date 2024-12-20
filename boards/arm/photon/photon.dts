@@ -28,7 +28,7 @@
         zmk,underglow = &led_strip;
     };
 
-        physical_layout0: physical_layout_0 {
+    physical_layout0: physical_layout_0 {
         compatible = "zmk,physical-layout";
         display-name = "Default Layout";
 
@@ -149,6 +149,25 @@ RC(4,0) RC(4,1) RC(4,2)                         RC(4,6)                         
             , <&gpio0 28 GPIO_ACTIVE_HIGH>
             , <&gpio0  2 GPIO_ACTIVE_HIGH>
             ;
+    };
+
+    kscan1: kscan_toggle {
+        compatible = "zmk,kscan-gpio-direct";
+        toggle-mode;
+        input-gpios
+            = <&gpio1 7 GPIO_ACTIVE_LOW>
+            , <&gpio0 6 GPIO_ACTIVE_LOW>
+            ;
+    };
+
+    sideband_behavior0: sideband0 {
+        compatible = "zmk,kscan-sideband-behaviors";
+        auto-enable;
+        kscan = <&kscan1>;
+        mac {
+            column = <1>;
+            bindings = <&mo 2>;
+        };
     };
 
     aliases {
