@@ -201,6 +201,20 @@ RC(4,0) RC(4,1) RC(4,2)                         RC(4,6)                         
         control-gpios = <&gpio0 29 GPIO_ACTIVE_HIGH>;
     };
 
+    encoder0: encoder0 {
+        compatible = "alps,ec11";
+        a-gpios = <&gpio1 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        b-gpios = <&gpio1 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        steps = <20>;
+        status = "okay";
+    };
+
+    sensors: sensors {
+        compatible = "zmk,keymap-sensors";
+        sensors = <&encoder0>;
+        triggers-per-rotation = <20>;
+    };
+
     vbatt: vbatt {
         compatible = "zmk,battery-nrf-vddh";
         label = "BATTERY";
