@@ -45,6 +45,8 @@
     &kp LSHFT           &kp Z     &kp X     &kp C     &kp V     &kp B     &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH  &kp RSHFT  &kp UP    &kp END
     &kp LCTRL &kp LALT  &kp LCMD                                &kp SPACE                               &kp RCMD  &mo 3     &kp LEFT   &kp DOWN  &kp RIGHT
                 >;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+
         };
 
         mac_function_layer {
