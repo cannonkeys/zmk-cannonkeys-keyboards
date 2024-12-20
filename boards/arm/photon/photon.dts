@@ -11,7 +11,10 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <physical_layouts.dtsi>
 
+#include "control_gpio_behavior.dtsi"
+
 #include "photon-pinctrl.dtsi"
+
 
 / {
     model = "photon";
@@ -179,11 +182,17 @@ RC(4,0) RC(4,1) RC(4,2)                         RC(4,6)                         
         compatible = "gpio-leds";
         blue_led: led_0 {
             gpios = <&gpio1 4 GPIO_ACTIVE_HIGH>;
-            label = "Blue LED (Power On)";
         };
         red_led: led_1 {
             gpios = <&gpio1 6 GPIO_ACTIVE_HIGH>;
-            label = "Red LED (Power Low)";
+        };
+    };
+
+    charge_led {
+        compatible = "zmk,control-gpio";
+        chg_led: led_2 {
+            gpios = <&gpio0 3 GPIO_ACTIVE_HIGH>;
+            starting-state-on;
         };
     };
 

@@ -11,6 +11,5 @@ west build -p -b photon
 ```
 
 TODO: 
-RGB status indicator
-MAC/PC Layer select with toggle switch
 Encoder support
+Fix RGB issue
