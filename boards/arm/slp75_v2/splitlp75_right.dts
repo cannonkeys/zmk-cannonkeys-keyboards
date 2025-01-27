@@ -1,0 +1,70 @@
+/*
+ * Copyright (c) 2024 Andrew Kannan
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+/dts-v1/;
+#include "splitlp75.dtsi"
+
+/ {
+    chosen {
+        zmk,battery = &vbatt;
+    };
+    
+    vbatt: vbatt {
+        compatible = "zmk,battery-nrf-vddh";
+        label = "BATTERY";
+    };
+
+    kscan0: kscan {
+        compatible = "zmk,kscan-gpio-matrix";
+        wakeup-source;
+        label = "KSCAN";
+
+        diode-direction = "col2row";
+        row-gpios
+            = <&gpio1 14 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpio0 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpio0 2  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpio0 6  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpio0 8  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpio1 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpio1 01 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            ;
+        col-gpios
+            = <&gpio1 12 GPIO_ACTIVE_HIGH>
+            , <&gpio0 4  GPIO_ACTIVE_HIGH>
+            , <&gpio0 30 GPIO_ACTIVE_HIGH>
+            , <&gpio0 31 GPIO_ACTIVE_HIGH>
+            , <&gpio0 29 GPIO_ACTIVE_HIGH>
+            , <&gpio1 15 GPIO_ACTIVE_HIGH>
+            , <&gpio1 13 GPIO_ACTIVE_HIGH>
+            , <&gpio1 11 GPIO_ACTIVE_HIGH>
+            , <&gpio1 10 GPIO_ACTIVE_HIGH>
+            ;
+    };
+
+    leds {
+        compatible = "gpio-leds";
+        status = "okay";
+        led0: led_0 {
+            gpios = <&gpio0 20 GPIO_ACTIVE_LOW>;  // Red LED
+        };
+        led1: led_1 {
+            gpios = <&gpio0 27 GPIO_ACTIVE_LOW>;  // Green LED
+        };
+        led2: led_2 {
+            gpios = <&gpio1 2  GPIO_ACTIVE_LOW>;  // Blue LED
+        };
+    };
+
+};
+
+&default_transform {
+    col-offset = <7>;
+};
+
+&right_encoder {
+    status = "okay";
+};

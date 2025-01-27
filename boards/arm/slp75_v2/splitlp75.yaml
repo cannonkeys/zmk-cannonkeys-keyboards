@@ -1,0 +1,15 @@
+identifier: splitlp75
+name: splitlp75
+type: mcu
+arch: arm
+toolchain:
+  - zephyr
+  - gnuarmemb
+supported:
+  - adc
+  - usb_device
+  - ble
+  - ieee802154
+  - pwm
+  - watchdog
+  - kscan

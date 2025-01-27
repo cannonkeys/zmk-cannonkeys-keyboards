@@ -1,0 +1,14 @@
+# Copyright (c) 2024 Andrew Kannan
+# SPDX-License-Identifier: MIT
+
+config BOARD_SPLITLP75
+    bool "splitlp75"
+    depends on SOC_NRF52840_QIAA
+
+config BOARD_SPLITLP75_LEFT
+    bool "splitlp75_left"
+    depends on SOC_NRF52840_QIAA
+
+config BOARD_SPLITLP75_RIGHT
+    bool "splitlp75_right"
+    depends on SOC_NRF52840_QIAA

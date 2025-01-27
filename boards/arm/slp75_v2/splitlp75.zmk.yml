@@ -1,0 +1,14 @@
+file_format: "1"
+id: splitlp75
+name: splitlp75
+type: board
+arch: arm
+features:
+  - keys
+outputs:
+  - usb
+  - ble
+url: https://cannonkeys.com/
+siblings:
+  - splitlp75_left
+  - splitlp75_right
