@@ -49,13 +49,13 @@
         compatible = "gpio-leds";
         status = "okay";
         led0: led_0 {
-            gpios = <&gpio0 20 GPIO_ACTIVE_LOW>;  // Red LED
+            gpios = <&gpio0 20 GPIO_ACTIVE_HIGH>;  // Red LED
         };
         led1: led_1 {
-            gpios = <&gpio0 27 GPIO_ACTIVE_LOW>;  // Green LED
+            gpios = <&gpio0 27 GPIO_ACTIVE_HIGH>;  // Green LED
         };
         led2: led_2 {
-            gpios = <&gpio1 2  GPIO_ACTIVE_LOW>;  // Blue LED
+            gpios = <&gpio1 2  GPIO_ACTIVE_HIGH>;  // Blue LED
         };
     };
 
