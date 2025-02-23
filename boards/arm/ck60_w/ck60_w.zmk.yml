@@ -1,10 +1,11 @@
 file_format: "1"
-id: vida
-name: vida
+id: ck60_w
+name: ck60_w
 type: board
 arch: arm
 features:
   - keys
+  - underglow
 outputs:
   - usb
   - ble

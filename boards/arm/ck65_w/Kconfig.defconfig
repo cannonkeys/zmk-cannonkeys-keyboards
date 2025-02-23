@@ -1,0 +1,25 @@
+# Copyright (c) 2024 Andrew Kannan
+# SPDX-License-Identifier: MIT
+
+if BOARD_CK65_W
+
+config ZMK_KEYBOARD_NAME
+    default "CK65 W"
+
+if USB_DEVICE_STACK
+
+config USB_NRFX
+    default y
+
+endif # USB_DEVICE_STACK
+
+config BT_CTLR
+    default BT
+
+config ZMK_BLE
+    default y
+
+config ZMK_USB
+    default y
+
+endif # BOARD_CK65_W

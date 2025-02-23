@@ -1,5 +1,5 @@
-identifier: vida
-name: vida
+identifier: ck65_w
+name: ck65_w
 type: mcu
 arch: arm
 toolchain:
