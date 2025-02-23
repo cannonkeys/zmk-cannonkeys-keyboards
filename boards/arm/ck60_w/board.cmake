@@ -1,4 +1,4 @@
-# Copyright (c) 2024 Andrew Kannan
+# Copyright (c) 2023 Andrew Kannan
 # SPDX-License-Identifier: MIT
 
 set(OPENOCD_NRF5_SUBFAMILY nrf52)

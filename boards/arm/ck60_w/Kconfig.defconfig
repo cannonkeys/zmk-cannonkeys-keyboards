@@ -1,10 +1,10 @@
-# Copyright (c) 2024 Andrew Kannan
+# Copyright (c) 2025 Andrew Kannan
 # SPDX-License-Identifier: MIT
 
-if BOARD_VIDA
+if BOARD_CK60_W
 
 config ZMK_KEYBOARD_NAME
-    default "Vida"
+    default "CK60 W"
 
 if USB_DEVICE_STACK
 
@@ -22,4 +22,4 @@ config ZMK_BLE
 config ZMK_USB
     default y
 
-endif # BOARD_VIDA
+endif # BOARD_CK60_W
