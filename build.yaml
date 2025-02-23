@@ -50,6 +50,7 @@ include:
   #   snippet: studio-rpc-usb-uart
   #   cmake-args: -DCONFIG_ZMK_STUDIO=y
   #   artifact-name: minimi40_studio
+<<<<<<< HEAD
   - board: splitlp75_left
     snippet: studio-rpc-usb-uart
     cmake-args: -DCONFIG_ZMK_STUDIO=y
@@ -58,6 +59,20 @@ include:
     snippet: studio-rpc-usb-uart
     cmake-args: -DCONFIG_ZMK_STUDIO=y
     artifact-name: splitlp75_right_studio  
+=======
+  - board: splitlp75_right
+    artifact-name: splitlp75_right
+  - board: splitlp75_right
+    snippet: studio-rpc-usb-uart
+    cmake-args: -DCONFIG_ZMK_STUDIO=y
+    artifact-name: splitlp75_right_studio
+  - board: splitlp75_left
+    artifact-name: splitlp75_left
+  - board: splitlp75_left
+    snippet: studio-rpc-usb-uart
+    cmake-args: -DCONFIG_ZMK_STUDIO=y
+    artifact-name: splitlp75_left_studio  
+>>>>>>> 841556b (build left and right on actions)
 
 
 
