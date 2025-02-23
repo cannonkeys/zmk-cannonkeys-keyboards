@@ -31,10 +31,6 @@ CONFIG_ZMK_RGB_UNDERGLOW_EFF_START=3
 CONFIG_ZMK_RGB_UNDERGLOW_BRT_MIN=10
 CONFIG_ZMK_RGB_UNDERGLOW_BRT_MAX=50
 
-#Enable deep sleep support
+#Enable deep sleep support and soft off
 CONFIG_ZMK_SLEEP=y
 CONFIG_ZMK_PM_SOFT_OFF=y
-
-CONFIG_ZMK_RGB_UNDERGLOW_AUTO_OFF_IDLE=y
-# Turn on logging, and set ZMK logging to debug output
-# CONFIG_ZMK_USB_LOGGING=y
