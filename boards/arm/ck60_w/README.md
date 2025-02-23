@@ -1,11 +1,5 @@
-# Bakeneko60 Go
+# CK60 Wireless
 
-![Bakeneko60 Go]()
-
-The Bakeneko60 Go is a wireless polycarbonate keyboard from CannonKeys
-
-## Building Bakeneko60 GO ZMK firmware
-
-```
-west build -p -b bakeneko60_go
-```
+This PCB is currently used for the following boards:
+- Vida
+- Bakeneko GO (Purchased in 2025 or later)
