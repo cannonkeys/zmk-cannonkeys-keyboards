@@ -17,7 +17,7 @@
 #     artifact-name: corne_left_with_logging
 #
 ---
-board: ["photon", "cerberus", "vida", "minimi40"]
+board: ["photon", "cerberus", "minimi40"]
 include:
   - board: bakeneko60_go
     artifact-name: bakeneko60_go
@@ -25,3 +25,15 @@ include:
     snippet: studio-rpc-usb-uart
     cmake-args: -DCONFIG_ZMK_STUDIO=y
     artifact-name: bakeneko60_go_studio
+  - board: ck65_w
+    artifact-name: ck65_w
+  - board: ck65_w
+    snippet: studio-rpc-usb-uart
+    cmake-args: -DCONFIG_ZMK_STUDIO=y
+    artifact-name: ck65_w_studio
+  - board: ck60_w
+    artifact-name: ck60_w
+  - board: ck60_w
+    snippet: studio-rpc-usb-uart
+    cmake-args: -DCONFIG_ZMK_STUDIO=y
+    artifact-name: ck60_w_studio
