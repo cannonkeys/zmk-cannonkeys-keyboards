@@ -4,6 +4,8 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: awkannan
       url-base: https://github.com/awkannan
+    - name: caksoylar
+      url-base: https://github.com/caksoylar
   projects:
     - name: zmk
       remote: awkannan
@@ -14,6 +16,9 @@ manifest:
       revision: main
     - name: zmk-smart-rgbled-widget
       remote: awkannan
+      revision: main
+    - name: zmk-rgbled-widget
+      remote: caksoylar
       revision: main
   self:
     path: config
