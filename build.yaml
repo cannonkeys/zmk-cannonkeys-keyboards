@@ -43,7 +43,6 @@ include:
     snippet: studio-rpc-usb-uart
     cmake-args: -DCONFIG_ZMK_STUDIO=y
     artifact-name: photon_studio
-    include:
   - board: minimi40
     artifact-name: minimi40
   - board: minimi40
