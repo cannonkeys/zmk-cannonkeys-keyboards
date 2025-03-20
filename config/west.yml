@@ -8,8 +8,8 @@ manifest:
       url-base: https://github.com/caksoylar
   projects:
     - name: zmk
-      remote: zmkfirmware
-      revision: main
+      remote: awkannan
+      revision: develop
       import: app/west.yml
     - name: zmk-gpio-behavior
       remote: awkannan
