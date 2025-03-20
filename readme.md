@@ -21,3 +21,7 @@ Please use the CK60_W firmware
 ### Reverie, Brutal65 v2, Bakeneko65
 
 Please use the CK65_W firmware
+
+### Cerberus
+
+Please use the Cerberus firmware
