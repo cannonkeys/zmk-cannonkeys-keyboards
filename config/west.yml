@@ -6,10 +6,13 @@ manifest:
       url-base: https://github.com/awkannan
   projects:
     - name: zmk
-      remote: zmkfirmware
-      revision: main
+      remote: awkannan
+      revision: develop
       import: app/west.yml
     - name: zmk-gpio-behavior
+      remote: awkannan
+      revision: main
+    - name: zmk-smart-rgbled-widget
       remote: awkannan
       revision: main
   self:

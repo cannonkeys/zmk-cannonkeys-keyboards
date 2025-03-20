@@ -49,4 +49,11 @@ include:
     snippet: studio-rpc-usb-uart
     cmake-args: -DCONFIG_ZMK_STUDIO=y
     artifact-name: minimi40_studio
+  - board: cerberus
+    artifact-name: cerberus
+  - board: cerberus
+    snippet: studio-rpc-usb-uart
+    cmake-args: -DCONFIG_ZMK_STUDIO=y
+    artifact-name: cerberus_studio
+  
 
