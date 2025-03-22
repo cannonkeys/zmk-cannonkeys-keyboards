@@ -11,6 +11,7 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 
 #include "link-layouts.dtsi"
+#include "link-pinctrl.dtsi"
 
 / {
     model = "link";
@@ -63,6 +64,11 @@ RC(3,0) RC(3,1) RC(3,2) RC(3,3) RC(3,4) RC(3,5) RC(4,0)    RC(4,11)  RC(3,6) RC(
     vbatt: vbatt {
         compatible = "zmk,battery-nrf-vddh";
     };
+
+    ext-power {
+        compatible = "zmk,ext-power-generic";
+        control-gpios = <&gpio0 8 GPIO_ACTIVE_HIGH>;
+    };
 };
 
 &adc {
@@ -84,6 +90,15 @@ RC(3,0) RC(3,1) RC(3,2) RC(3,3) RC(3,4) RC(3,5) RC(4,0)    RC(4,11)  RC(3,6) RC(
 zephyr_udc0: &usbd {
     status = "okay";
 };
+
+nice_view_spi: &spi3 {
+    compatible = "nordic,nrf-spim";
+    pinctrl-0 = <&spi3_default>;
+    pinctrl-1 = <&spi3_sleep>;
+    pinctrl-names = "default", "sleep";
+    cs-gpios = <&gpio0 25 GPIO_ACTIVE_HIGH>;
+};
+
 
 &flash0 {
     /*
