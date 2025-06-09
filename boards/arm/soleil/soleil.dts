@@ -1,0 +1,172 @@
+/*
+ * Copyright (c) 2020 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+/dts-v1/;
+#include <nordic/nrf52840_qiaa.dtsi>
+#include <dt-bindings/zmk/matrix_transform.h>
+
+#include <zephyr/dt-bindings/gpio/nordic-nrf-gpio.h>
+
+#include "soleil-layouts.dtsi"
+#include "soleil-transforms.dtsi"
+
+
+/ {
+	model = "soleil";
+	compatible = "soleil";
+
+	chosen {
+		zephyr,code-partition = &code_partition;
+		zephyr,sram = &sram0;
+		zephyr,flash = &flash0;
+		zmk,kscan = &kscan0;
+		zmk,battery = &vbatt;
+		zmk,physical-layout = &physical_layout2;
+	};
+ 
+	kscan0: kscan {
+		compatible = "zmk,kscan-gpio-matrix";
+		wakeup-source;
+
+		diode-direction = "col2row";
+		row-gpios
+			= <&gpio1 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // R0
+			, <&gpio1 13 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // R1
+			, <&gpio1 14 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // R2
+			, <&gpio0 27 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // R3
+			, <&gpio0  4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // R4
+			, <&gpio0 26 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // R5
+			, <&gpio0 13 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // R6
+			, <&gpio0 12 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // R7
+			;
+		col-gpios
+			= <&gpio0  6 GPIO_ACTIVE_HIGH> // C0
+			, <&gpio0 11 GPIO_ACTIVE_HIGH> // C1
+			, <&gpio0  8 GPIO_ACTIVE_HIGH> // C2
+			, <&gpio0  9 GPIO_ACTIVE_HIGH> // C3
+			, <&gpio0 10 GPIO_ACTIVE_HIGH> // C4
+			, <&gpio0  7 GPIO_ACTIVE_HIGH> // C5
+			, <&gpio0 31 GPIO_ACTIVE_HIGH> // C6
+			, <&gpio0 30 GPIO_ACTIVE_HIGH> // C7
+			, <&gpio1  6 GPIO_ACTIVE_HIGH> // C8
+			, <&gpio0 29 GPIO_ACTIVE_HIGH> // C9
+			, <&gpio0 28 GPIO_ACTIVE_HIGH> // C10
+			, <&gpio0  2 GPIO_ACTIVE_HIGH> // C11
+			, <&gpio1 15 GPIO_ACTIVE_HIGH> // C12
+			, <&gpio1 12 GPIO_ACTIVE_HIGH> // C13
+			, <&gpio1 11 GPIO_ACTIVE_HIGH> // C14
+			, <&gpio1  8 GPIO_ACTIVE_HIGH> // C15
+			, <&gpio1  9 GPIO_ACTIVE_HIGH> // C16
+			;
+	};
+
+     vbatt: vbatt {
+         compatible = "zmk,battery-voltage-divider";
+         io-channels = <&adc 3>;
+         output-ohms = <2000000>;
+         full-ohms = <(2000000 + 806000)>;
+     };
+	
+	aliases {
+        led-red = &red_led;
+        led-green = &green_led;
+        led-blue = &blue_led;
+    };
+
+    leds {
+		compatible = "gpio-leds";
+		red_led: led_0 {
+			gpios = <&gpio1 3 GPIO_ACTIVE_HIGH>;
+		};
+		green_led: led_1 {
+			gpios = <&gpio1 4 GPIO_ACTIVE_HIGH>;
+		};
+		blue_led: led_2 {
+			gpios = <&gpio1 1 GPIO_ACTIVE_HIGH>;
+		};
+	};
+
+	keys {
+        compatible = "gpio-keys";
+        soft_off_gpio_key: soft_off_gpio_key {
+            gpios = <&gpio0 14 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
+        };
+    };
+
+    wakeup_scan: wakeup_scan {
+        compatible = "zmk,gpio-key-wakeup-trigger";
+        trigger = <&soft_off_gpio_key>;
+        wakeup-source;
+        extra-gpios = <&gpio1 12 GPIO_ACTIVE_HIGH>;
+    };
+
+    soft_off_wakers {
+        compatible = "zmk,soft-off-wakeup-sources";
+        wakeup-sources = <&wakeup_scan>;
+    };
+	
+};
+
+&adc {
+    status = "okay";
+};
+
+&gpiote {
+    status = "okay";
+};
+
+&gpio0 {
+	status = "okay";
+};
+
+&gpio1 {
+	status = "okay";
+};
+
+zephyr_udc0: &usbd {
+    status = "okay";
+};
+
+&flash0 {
+    /*
+     * For more information, see:
+     * http://docs.zephyrproject.org/latest/devices/dts/flash_partitions.html
+     */
+    partitions {
+        compatible = "fixed-partitions";
+        #address-cells = <1>;
+        #size-cells = <1>;
+
+        sd_partition: partition@0 {
+            label = "mbr";
+            reg = <0x00000000 0x00001000>;
+        };
+
+        code_partition: partition@1000 {
+            label = "code_partition";
+            reg = <0x00001000 0x000d3000>;
+        };
+
+        /*
+         * The flash starting at 0x000d4000 and ending at
+         * 0x000f3fff is reserved for use by the application.
+         */
+
+        /*
+         * Storage partition will be used by FCB/LittleFS/NVS
+         * if enabled.
+         */
+        storage_partition: partition@d4000 {
+            label = "storage";
+            reg = <0x000d4000 0x00020000>;
+        };
+
+        boot_partition: partition@f4000 {
+            label = "ck_boot";
+            reg = <0x000f4000 0x0000c000>;
+        };
+    };
+};

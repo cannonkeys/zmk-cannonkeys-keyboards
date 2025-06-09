@@ -1,0 +1,22 @@
+# Copyright (c) 2020 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+if BOARD_SOLEIL
+
+config BOARD
+	default "soleil"
+
+config ZMK_KEYBOARD_NAME
+	default "soleil"
+
+if USB_DEVICE_STACK
+
+config USB_NRFX
+    default y
+
+endif # USB_DEVICE_STACK
+
+config BT_CTLR
+    default y
+
+endif
