@@ -25,3 +25,7 @@ Please use the CK65_W firmware
 ### Cerberus
 
 Please use the Cerberus firmware
+
+### Photon
+
+Please use the Photon firmware
