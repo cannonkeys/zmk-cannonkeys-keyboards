@@ -15,53 +15,53 @@
 
 
 / {
-	model = "soleil";
-	compatible = "soleil";
+    model = "soleil";
+    compatible = "soleil";
 
-	chosen {
-		zephyr,code-partition = &code_partition;
-		zephyr,sram = &sram0;
-		zephyr,flash = &flash0;
-		zmk,kscan = &kscan0;
-		zmk,battery = &vbatt;
-		zmk,physical-layout = &physical_layout2;
-	};
+    chosen {
+        zephyr,code-partition = &code_partition;
+        zephyr,sram = &sram0;
+        zephyr,flash = &flash0;
+        zmk,kscan = &kscan0;
+        zmk,battery = &vbatt;
+        zmk,physical-layout = &physical_layout2;
+    };
  
-	kscan0: kscan {
-		compatible = "zmk,kscan-gpio-matrix";
-		wakeup-source;
+    kscan0: kscan {
+        compatible = "zmk,kscan-gpio-matrix";
+        wakeup-source;
 
-		diode-direction = "col2row";
-		row-gpios
-			= <&gpio1 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // R0
-			, <&gpio1 13 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // R1
-			, <&gpio1 14 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // R2
-			, <&gpio0 27 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // R3
-			, <&gpio0  4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // R4
-			, <&gpio0 26 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // R5
-			, <&gpio0 13 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // R6
-			, <&gpio0 12 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // R7
-			;
-		col-gpios
-			= <&gpio0  6 GPIO_ACTIVE_HIGH> // C0
-			, <&gpio0 11 GPIO_ACTIVE_HIGH> // C1
-			, <&gpio0  8 GPIO_ACTIVE_HIGH> // C2
-			, <&gpio0  9 GPIO_ACTIVE_HIGH> // C3
-			, <&gpio0 10 GPIO_ACTIVE_HIGH> // C4
-			, <&gpio0  7 GPIO_ACTIVE_HIGH> // C5
-			, <&gpio0 31 GPIO_ACTIVE_HIGH> // C6
-			, <&gpio0 30 GPIO_ACTIVE_HIGH> // C7
-			, <&gpio1  6 GPIO_ACTIVE_HIGH> // C8
-			, <&gpio0 29 GPIO_ACTIVE_HIGH> // C9
-			, <&gpio0 28 GPIO_ACTIVE_HIGH> // C10
-			, <&gpio0  2 GPIO_ACTIVE_HIGH> // C11
-			, <&gpio1 15 GPIO_ACTIVE_HIGH> // C12
-			, <&gpio1 12 GPIO_ACTIVE_HIGH> // C13
-			, <&gpio1 11 GPIO_ACTIVE_HIGH> // C14
-			, <&gpio1  8 GPIO_ACTIVE_HIGH> // C15
-			, <&gpio1  9 GPIO_ACTIVE_HIGH> // C16
-			;
-	};
+        diode-direction = "col2row";
+        row-gpios
+            = <&gpio1 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // R0
+            , <&gpio1 13 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // R1
+            , <&gpio1 14 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // R2
+            , <&gpio0 27 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // R3
+            , <&gpio0  4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // R4
+            , <&gpio0 26 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // R5
+            , <&gpio0 13 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // R6
+            , <&gpio0 12 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // R7
+            ;
+        col-gpios
+            = <&gpio0  6 GPIO_ACTIVE_HIGH> // C0
+            , <&gpio0 11 GPIO_ACTIVE_HIGH> // C1
+            , <&gpio0  8 GPIO_ACTIVE_HIGH> // C2
+            , <&gpio0  9 GPIO_ACTIVE_HIGH> // C3
+            , <&gpio0 10 GPIO_ACTIVE_HIGH> // C4
+            , <&gpio0  7 GPIO_ACTIVE_HIGH> // C5
+            , <&gpio0 31 GPIO_ACTIVE_HIGH> // C6
+            , <&gpio0 30 GPIO_ACTIVE_HIGH> // C7
+            , <&gpio1  6 GPIO_ACTIVE_HIGH> // C8
+            , <&gpio0 29 GPIO_ACTIVE_HIGH> // C9
+            , <&gpio0 28 GPIO_ACTIVE_HIGH> // C10
+            , <&gpio0  2 GPIO_ACTIVE_HIGH> // C11
+            , <&gpio1 15 GPIO_ACTIVE_HIGH> // C12
+            , <&gpio1 12 GPIO_ACTIVE_HIGH> // C13
+            , <&gpio1 11 GPIO_ACTIVE_HIGH> // C14
+            , <&gpio1  8 GPIO_ACTIVE_HIGH> // C15
+            , <&gpio1  9 GPIO_ACTIVE_HIGH> // C16
+            ;
+    };
 
      vbatt: vbatt {
          compatible = "zmk,battery-voltage-divider";
@@ -69,27 +69,27 @@
          output-ohms = <2000000>;
          full-ohms = <(2000000 + 806000)>;
      };
-	
-	aliases {
+    
+    aliases {
         led-red = &red_led;
         led-green = &green_led;
         led-blue = &blue_led;
     };
 
     leds {
-		compatible = "gpio-leds";
-		red_led: led_0 {
-			gpios = <&gpio1 3 GPIO_ACTIVE_HIGH>;
-		};
-		green_led: led_1 {
-			gpios = <&gpio1 4 GPIO_ACTIVE_HIGH>;
-		};
-		blue_led: led_2 {
-			gpios = <&gpio1 1 GPIO_ACTIVE_HIGH>;
-		};
-	};
+        compatible = "gpio-leds";
+        red_led: led_0 {
+            gpios = <&gpio1 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
+        };
+        green_led: led_1 {
+            gpios = <&gpio1 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
+        };
+        blue_led: led_2 {
+            gpios = <&gpio1 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
+        };
+    };
 
-	keys {
+    keys {
         compatible = "gpio-keys";
         soft_off_gpio_key: soft_off_gpio_key {
             gpios = <&gpio0 14 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
@@ -105,9 +105,9 @@
 
     soft_off_wakers {
         compatible = "zmk,soft-off-wakeup-sources";
-        wakeup-sources = <&wakeup_scan>;
+        wakeup-sources = <&kscan0 &wakeup_scan>;
     };
-	
+    
 };
 
 &adc {
@@ -119,11 +119,11 @@
 };
 
 &gpio0 {
-	status = "okay";
+    status = "okay";
 };
 
 &gpio1 {
-	status = "okay";
+    status = "okay";
 };
 
 zephyr_udc0: &usbd {
