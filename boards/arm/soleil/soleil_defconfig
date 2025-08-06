@@ -34,6 +34,9 @@ CONFIG_BT_CTLR_TX_PWR_PLUS_8=y
 # Enable deep sleep
 CONFIG_ZMK_SLEEP=y
 
+#Turn on for quick deep sleep (testing purposes)
+#CONFIG_ZMK_IDLE_SLEEP_TIMEOUT=60000
+
 # Enable soft off
 CONFIG_ZMK_PM_SOFT_OFF=y
 
