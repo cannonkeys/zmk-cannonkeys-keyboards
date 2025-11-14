@@ -1,0 +1,11 @@
+file_format: "1"
+id: bullet_train
+name: bullet_train
+type: board
+arch: arm
+features:
+  - keys
+outputs:
+  - usb
+  - ble
+url: https://cannonkeys.com/
